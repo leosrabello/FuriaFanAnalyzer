@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import furiaLogo from '../assets/furia-logo.png';
 import furiaMascot from '../assets/furia-mascot.png';
 import backgroundTexture from '../assets/texture.png';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [showRegister, setShowRegister] = useState(false);
@@ -15,61 +15,90 @@ function Login() {
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('userLogged'));
-    if (storedUser) {
-      if (storedUser.type === 'admin') navigate('/dashboard');
-      if (storedUser.type === 'fan') navigate('/fan-info');
-    }
+    if (storedUser?.type === 'admin') navigate('/dashboard');
+    else if (storedUser?.type === 'fan') navigate('/fan-info');
   }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
-    setRegisterData(prev => ({ ...prev, [name]: value }));
+    setRegisterData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const calculateEngagementScore = (data) => {
+    let score = 0;
+    if (data.favoriteGame) score += 20;
+    if (data.twitchUser) score += 20;
+    if (data.tags) score += data.tags.split(',').length * 10;
+    if (data.promoConsent) score += 20;
+    if (data.discordMember) score += 20;
+    if (data.twitter) score += 10;
+    if (data.instagram) score += 10;
+    return score;
   };
 
   const handleLogin = () => {
-    if (formData.email === 'colaborador@furiagg.com' && formData.password === 'furia123') {
-      localStorage.setItem('userLogged', JSON.stringify({ type: 'admin' }));
+    const { email, password } = formData;
+
+    // Admin login
+    if (email === 'colaborador@furiagg.com' && password === 'furia123') {
+      const adminUser = { email, name: 'Administrador', type: 'admin' };
+      localStorage.setItem('userLogged', JSON.stringify(adminUser));
       navigate('/dashboard');
+      return;
+    }
+
+    // Fan login
+    const allFans = JSON.parse(localStorage.getItem('fanList')) || [];
+    const matchedFan = allFans.find(f => f.email === email && f.password === password);
+    if (matchedFan) {
+      const fanUser = { email, name: matchedFan.name, type: 'fan' };
+      localStorage.setItem('userLogged', JSON.stringify(fanUser));
+      localStorage.setItem('loggedFan', JSON.stringify(matchedFan));
+      navigate('/fan-info');
     } else {
-      const storedFan = JSON.parse(localStorage.getItem('fanData'));
-      if (
-        storedFan &&
-        storedFan.email === formData.email &&
-        storedFan.password === formData.password
-      ) {
-        localStorage.setItem('loggedFan', JSON.stringify(storedFan));
-        localStorage.setItem('userLogged', JSON.stringify({ type: 'fan', name: storedFan.name }));
-        navigate('/fan-info');
-      } else {
-        alert('Credenciais inválidas.');
-      }
+      toast.error('Credenciais inválidas.', { position: 'top-center', autoClose: 3000, theme: 'dark' });
     }
   };
 
   const handleRegister = () => {
-    const existingFan = JSON.parse(localStorage.getItem('fanData'));
-    if (existingFan && existingFan.email === registerData.email) {
-      toast.error('Email já cadastrado!', {
-        position: 'top-center',
-        autoClose: 3000,
-        theme: 'dark'
-      });
+    const allFans = JSON.parse(localStorage.getItem('fanList')) || [];
+    const existingFan = allFans.find(f => f.email === registerData.email);
+    if (existingFan) {
+      toast.error('Email já cadastrado!');
       return;
     }
 
-    localStorage.setItem('fanData', JSON.stringify(registerData));
+    const newFan = {
+      ...registerData,
+      engagementScore: calculateEngagementScore(registerData),
+      favoriteGame: '',
+      twitchUser: '',
+      tags: '',
+      promoConsent: false,
+      discordMember: false,
+      twitter: '',
+      instagram: '',
+      city: ''
+    };
+
+    const updatedFans = [...allFans, newFan];
+    localStorage.setItem('fanList', JSON.stringify(updatedFans));
+
     toast.success('Registro realizado com sucesso!', {
       position: 'top-center',
       autoClose: 3000,
       theme: 'dark'
     });
+
+    // ✅ Retorna à tela de login com dados preenchidos
     setTimeout(() => {
       setShowRegister(false);
+      setFormData({ email: newFan.email, password: newFan.password });
     }, 3000);
   };
 
@@ -181,18 +210,7 @@ function Login() {
         </div>
       </div>
 
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      <ToastContainer />
     </>
   );
 }
