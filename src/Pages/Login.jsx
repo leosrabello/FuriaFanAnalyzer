@@ -52,6 +52,16 @@ function Login() {
   };
 
   const handleRegister = () => {
+    const existingFan = JSON.parse(localStorage.getItem('fanData'));
+    if (existingFan && existingFan.email === registerData.email) {
+      toast.error('Email já cadastrado!', {
+        position: 'top-center',
+        autoClose: 3000,
+        theme: 'dark'
+      });
+      return;
+    }
+
     localStorage.setItem('fanData', JSON.stringify(registerData));
     toast.success('Registro realizado com sucesso!', {
       position: 'top-center',
