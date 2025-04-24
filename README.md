@@ -1,4 +1,3 @@
-
 # FURIA Fan Analyzer
 
 FURIA Fan Analyzer é um sistema dividido em frontend e backend que permite mapear e entender melhor os fãs da organização FURIA, coletando dados como jogos preferidos, engajamento com redes sociais e participação na comunidade.
@@ -10,176 +9,55 @@ Este repositório utiliza separação por branches:
 - `frontend`: Interface React com páginas para login, registro, formulário do fã e dashboard visual com gráficos.
 - `backend`: Simulação de backend utilizando localStorage (em ambiente local), com lógica de persistência e autenticação.
 
-## Funcionalidades
+## Documentação do Projeto
 
-### Para o Fã
+### Visão Geral
 
-- Registro de informações como nome, e-mail, cidade, redes sociais, jogo preferido e tags de interesse
-- Avaliação automática de engajamento com base nas informações fornecidas
-- Classificação do fã em três níveis: Super Fã, Curioso e Novato
-- Exibição de mensagem personalizada após envio do formulário
-- Armazenamento de dados no localStorage do navegador
+O projeto permite que fãs da FURIA se registrem e preencham dados sobre suas preferências de jogos e redes sociais. Um sistema de pontuação calcula o nível de engajamento de cada fã. Os colaboradores da FURIA (usuários do tipo "admin") têm acesso a um dashboard onde visualizam os fãs e gráficos analíticos.
 
-### Para o Colaborador (Admin)
+### Fluxo do Fã
 
-- Login exclusivo com credenciais fixas
-- Dashboard administrativo com:
-  - Lista de fãs registrados
-  - Gráfico de barras de pontuação de engajamento
-  - Gráfico de pizza com jogos preferidos
-- Logout e proteção de rotas para acesso restrito
+1. Registro via formulário
+2. Preenchimento de informações adicionais
+3. Cálculo do engajamento com base nos dados fornecidos
+4. Classificação automática como:
+   - Super Fã
+   - Curioso
+   - Novato
+5. Exibição personalizada com toast e mascote da FURIA
 
-## Tecnologias
+### Fluxo do Colaborador (Admin)
 
-### Frontend
+1. Login com credenciais fixas
+2. Visualização do dashboard administrativo
+3. Acesso à lista de fãs e gráficos:
+   - Gráfico de barras de pontuação de engajamento
+   - Gráfico de pizza de jogos preferidos
 
-- React
-- React Router DOM
-- Tailwind CSS
-- Framer Motion (animações)
-- Chart.js (gráficos)
-- React Toastify (notificações)
-- localStorage para persistência de dados
+### Armazenamento
 
-### Backend (Simulado)
-
-- Node.js (estruturado para futura integração com banco real)
-- Dados mantidos via localStorage simulando persistência
-
-## Como Executar o Projeto
-
-### Clonar o Repositório
-
-```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
-Executar o Frontend
-bash
-Copy
-Edit
-git checkout frontend
-npm install
-npm run dev
-Acesse: http://localhost:3000
-
-Executar o Backend (opcional, se configurado)
-bash
-Copy
-Edit
-git checkout backend
-npm install
-npm run dev
-Credenciais de Acesso
-
-Tipo de Usuário	E-mail	Senha
-Colaborador	colaborador@furiagg.com	furia123
-Fã	Informado no momento do registro	—
-Melhorias Futuras
-Substituir localStorage por banco de dados real
-
-Autenticação com tokens JWT
-
-Integração com APIs de redes sociais
-
-Sistema de ranking de fãs com pontuação acumulada
-
-Deploy com pipelines de CI/CD (Vercel/Render)
-
-Estrutura Recomendada
-css
-Copy
-Edit
-├── frontend/
-│   └── src/
-│       ├── Pages/
-│       ├── Components/
-│       └── assets/
-├── backend/
-│   └── src/
-│       ├── controllers/
-│       ├── routes/
-│       └── models/
-Observações
-Ao registrar um fã, as informações são salvas localmente no navegador.
-
-O dashboard administrativo somente é acessível com credenciais válidas de colaborador.
-
-O projeto não depende de backend em nuvem neste momento.
-
-yaml
-Copy
-Edit
+- Os dados dos fãs são armazenados no `localStorage` do navegador.
+- A branch `backend` simula persistência local para fins de desenvolvimento.
 
 ---
 
-Se quiser, posso personalizar com o link do seu GitHub, inserir instruções específicas de `.env`, ou adaptar o conteúdo ao seu processo de deploy (como Vercel, Netlify, Render etc). Deseja isso também?
-
-
-
-
-
-
-You said:
-mas vc n ta me dando a documentação em markdown, não deve ser?
-
-
-ChatGPT said:
-Sim, perfeito! A documentação para o projeto deve estar escrita em Markdown dentro do arquivo README.md. E a boa notícia é: tudo que te enviei na última resposta já está em Markdown puro — pronto para ser copiado direto no seu README.md.
-
-📌 O que você precisa fazer:
-Crie ou abra o arquivo README.md na raiz do seu projeto.
-
-Copie o conteúdo abaixo e cole dentro desse arquivo:
-
-markdown
-Copy
-Edit
-# FURIA Fan Analyzer
-
-FURIA Fan Analyzer é um sistema dividido em frontend e backend que permite mapear e entender melhor os fãs da organização FURIA, coletando dados como jogos preferidos, engajamento com redes sociais e participação na comunidade.
-
-## Estrutura de Branches
-
-Este repositório utiliza separação por branches:
-
-- `frontend`: Interface React com páginas para login, registro, formulário do fã e dashboard visual com gráficos.
-- `backend`: Simulação de backend utilizando localStorage (em ambiente local), com lógica de persistência e autenticação.
-
-## Funcionalidades
-
-### Para o Fã
-
-- Registro de informações como nome, e-mail, cidade, redes sociais, jogo preferido e tags de interesse
-- Avaliação automática de engajamento com base nas informações fornecidas
-- Classificação do fã em três níveis: Super Fã, Curioso e Novato
-- Exibição de mensagem personalizada após envio do formulário
-- Armazenamento de dados no localStorage do navegador
-
-### Para o Colaborador (Admin)
-
-- Login exclusivo com credenciais fixas
-- Dashboard administrativo com:
-  - Lista de fãs registrados
-  - Gráfico de barras de pontuação de engajamento
-  - Gráfico de pizza com jogos preferidos
-- Logout e proteção de rotas para acesso restrito
-
-## Tecnologias
+## Tecnologias Utilizadas
 
 ### Frontend
 
 - React
 - React Router DOM
 - Tailwind CSS
-- Framer Motion (animações)
-- Chart.js (gráficos)
-- React Toastify (notificações)
-- localStorage para persistência de dados
+- Framer Motion
+- Chart.js
+- React Toastify
 
-### Backend (Simulado)
+### Backend (simulado)
 
-- Node.js (estruturado para futura integração com banco real)
-- Dados mantidos via localStorage simulando persistência
+- Node.js (estrutura preparada para backend real)
+- Armazenamento local com localStorage
+
+---
 
 ## Como Executar o Projeto
 
@@ -188,55 +66,3 @@ Este repositório utiliza separação por branches:
 ```bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
-Executar o Frontend
-bash
-Copy
-Edit
-git checkout frontend
-npm install
-npm run dev
-Acesse: http://localhost:3000
-
-Executar o Backend (opcional, se configurado)
-bash
-Copy
-Edit
-git checkout backend
-npm install
-npm run dev
-Credenciais de Acesso
-
-Tipo de Usuário	E-mail	Senha
-Colaborador	colaborador@furiagg.com	furia123
-Fã	Informado no momento do registro	—
-Melhorias Futuras
-Substituir localStorage por banco de dados real
-
-Autenticação com tokens JWT
-
-Integração com APIs de redes sociais
-
-Sistema de ranking de fãs com pontuação acumulada
-
-Deploy com pipelines de CI/CD (Vercel/Render)
-
-Estrutura Recomendada
-css
-Copy
-Edit
-├── frontend/
-│   └── src/
-│       ├── Pages/
-│       ├── Components/
-│       └── assets/
-├── backend/
-│   └── src/
-│       ├── controllers/
-│       ├── routes/
-│       └── models/
-Observações
-Ao registrar um fã, as informações são salvas localmente no navegador.
-
-O dashboard administrativo somente é acessível com credenciais válidas de colaborador.
-
-O projeto não depende de backend em nuvem neste momento.
