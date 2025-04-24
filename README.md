@@ -4,7 +4,7 @@ Sistema para analisar e engajar fãs da organização FURIA, com coleta de dados
 
 ---
 
-## 📋 Sumário
+##  Sumário
 
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -22,7 +22,7 @@ Este sistema permite o registro e análise de fãs da FURIA, com base em dados d
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 ### Frontend
 
@@ -40,7 +40,7 @@ Este sistema permite o registro e análise de fãs da FURIA, com base em dados d
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
 ### Clonar o Repositório
 
@@ -69,7 +69,7 @@ npm run dev
 
 ---
 
-## 🔐 Credenciais de Acesso
+##  Credenciais de Acesso
 
 | Tipo de Usuário | E-mail                      | Senha     |
 |-----------------|-----------------------------|-----------|
@@ -88,7 +88,7 @@ npm run dev
 
 ---
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```plaintext
 ├── frontend/
@@ -105,7 +105,7 @@ npm run dev
 
 ---
 
-## 📝 Observações
+##  Observações
 
 - Projeto criado para prototipação funcional.
 - Admin possui login fixo e acesso ao dashboard.
