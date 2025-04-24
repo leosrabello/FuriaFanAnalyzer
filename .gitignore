@@ -1,0 +1,77 @@
+# Node modules
+node_modules/
+.package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Output directories
+dist/
+build/
+coverage/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# dotenv environment files
+.env
+.env.*.local
+!.env.example
+
+# parcel-bundler cache
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm/
+
+# Storybook
+.storybook-out/
+
+# Test output
+test-output/
+jest-test-results.json
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Build artifact for Next.js or similar
+.next/
+
+# SvelteKit
+.svelte-kit/
+
+# Firebase
+.firebase/
+
+# Mac system file
+Icon?
+
+# VS Code backups
+*.code-workspace
+*.code-profile
+
+# IntelliJ
+*.iml
+.idea/
+
+# Local config
+local.settings.json
