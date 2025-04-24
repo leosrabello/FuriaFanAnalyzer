@@ -6,8 +6,8 @@ FURIA Fan Analyzer é um sistema dividido em frontend e backend que permite mape
 
 Este repositório utiliza separação por branches:
 
-- `frontend`: Interface React com páginas para login, registro, formulário do fã e dashboard visual com gráficos.
-- `backend`: Simulação de backend utilizando localStorage (em ambiente local), com lógica de persistência e autenticação.
+- "frontend": Interface React com páginas para login, registro, formulário do fã e dashboard visual com gráficos.
+- "backend": Simulação de backend utilizando localStorage (em ambiente local), com lógica de persistência e autenticação.
 
 ## Documentação do Projeto
 
@@ -36,8 +36,8 @@ O projeto permite que fãs da FURIA se registrem e preencham dados sobre suas pr
 
 ### Armazenamento
 
-- Os dados dos fãs são armazenados no `localStorage` do navegador.
-- A branch `backend` simula persistência local para fins de desenvolvimento.
+- Os dados dos fãs são armazenados no "localStorage" do navegador.
+- A branch "backend" simula persistência local para fins de desenvolvimento.
 
 ---
 
@@ -63,6 +63,61 @@ O projeto permite que fãs da FURIA se registrem e preencham dados sobre suas pr
 
 ### Clonar o Repositório
 
-```bash
+'''bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
+Rodar o Frontend
+bash
+Copy
+Edit
+git checkout frontend
+npm install
+npm run dev
+Acesse em: http://localhost:3000
+
+Rodar o Backend (simulado)
+bash
+Copy
+Edit
+git checkout backend
+npm install
+npm run dev
+Credenciais de Acesso
+
+Tipo de Usuário	E-mail	Senha
+Colaborador	colaborador@furiagg.com	furia123
+Fã	Informado no momento do registro	—
+Melhorias Futuras
+Substituir localStorage por banco de dados real (Ex: MongoDB, PostgreSQL)
+
+Adicionar autenticação com JWT
+
+Exportação de dados em CSV ou PDF
+
+Filtros por cidade, pontuação ou jogo
+
+Deploy em ambientes separados (ex: Vercel + Railway)
+
+Estrutura Sugerida do Projeto
+css
+Copy
+Edit
+├── frontend/
+│   └── src/
+│       ├── Pages/
+│       ├── Components/
+│       └── assets/
+├── backend/
+│   └── src/
+│       ├── controllers/
+│       ├── routes/
+│       └── models/
+Observações
+O sistema foi desenvolvido com foco em prototipação funcional.
+
+A autenticação de administrador é baseada em um email fixo.
+
+O dashboard administrativo exige login e redireciona usuários não autorizados.
+
+Não é necessário banco de dados para uso local em desenvolvimento.
+
