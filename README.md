@@ -78,7 +78,7 @@ npm run dev
 
 ---
 
-## 📈 Melhorias Futuras
+##  Melhorias Futuras
 
 - Substituir localStorage por banco real (MongoDB, PostgreSQL)
 - Autenticação JWT
