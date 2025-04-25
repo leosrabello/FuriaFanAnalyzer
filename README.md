@@ -56,17 +56,6 @@ npm install
 npm run dev
 ```
 
-Acesse em: http://localhost:3000
-
-### Rodar o Backend (Simulado)
-
-```bash
-git checkout backend
-npm install
-npm run dev
-```
-
----
 
 ##  Credenciais de Acesso
 
