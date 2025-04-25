@@ -45,8 +45,7 @@ Este sistema permite o registro e análise de fãs da FURIA, com base em dados d
 ### Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/leosrabello/FuriaFanAnalyzer.git
 ```
 
 ### Rodar o Frontend
